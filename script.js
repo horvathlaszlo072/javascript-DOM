@@ -45,15 +45,15 @@
 //     document.documentElement.clientWidth
 //   );
 
-  // window.scrollTo(
-  //   s1coords.left + window.pageXOffset,
-  //   s1coords.top + window.pageYOffset);
+// window.scrollTo(
+//   s1coords.left + window.pageXOffset,
+//   s1coords.top + window.pageYOffset);
 
-  // window.scrollTo({
-  //   left: s1coords.left + window.pageXOffset,
-  //   top: s1coords.top + window.pageYOffset,
-  //   behavior: 'smooth'
-  // });
+// window.scrollTo({
+//   left: s1coords.left + window.pageXOffset,
+//   top: s1coords.top + window.pageYOffset,
+//   behavior: 'smooth'
+// });
 //   section1.scrollIntoView({ behavior: 'smooth' });
 // });
 
@@ -78,6 +78,33 @@
 //     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
 //   }
 // });
+
+////////////////////////////////////////////////
+///Tabbed component
+
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations__tab');
+
+  //if(!clicked) return;
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  clicked.classList.add('operations__tab--active');
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
+
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+/// Selecting, Creating and Deleting Elements///
+////////////////////////////////////////////////
+////////////////////////////////////////////////
 
 // console.log(document.documentElement);
 // console.log(document.head);
@@ -189,4 +216,5 @@
 
 // h1.closest('.header').style.background = "var(--gradient-secondary)"
 // h1.closest('h1').style.background = "var(--gradient-primary)"
- 191
+
+192
